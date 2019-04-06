@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="&amp;emsp;由于之前搭建的hexo博客太过花哨，所以打算这次花一段时间优化一些，这次选择的时候比较大众化的NexT&amp;emsp;  废话不多说，直接开始进入改造步骤！ 一、配置主题1、首先我们将NexT主题clone下来； $ git clone https://github.com/iissnan/hexo-theme-next themes/next 2、到hexo的配置文件_config.ym">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo博客改装和一些细节优化">
+<meta property="og:url" content="http://yoursite.com/2018/05/26/hexo博客改装和一些细节优化/index.html">
+<meta property="og:site_name" content="十里枯木的部落阁">
+<meta property="og:description" content="&amp;emsp;由于之前搭建的hexo博客太过花哨，所以打算这次花一段时间优化一些，这次选择的时候比较大众化的NexT&amp;emsp;  废话不多说，直接开始进入改造步骤！ 一、配置主题1、首先我们将NexT主题clone下来； $ git clone https://github.com/iissnan/hexo-theme-next themes/next 2、到hexo的配置文件_config.ym">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xpy6.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xZtG.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xWwy.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xbYB.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xs8p.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2x4H3.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xA3u.md.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xtM9.md.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2x6LA.md.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xIRO.md.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xlPe.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2x8Sd.md.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xfHR.png">
+<meta property="og:image" content="https://s1.ax2x.com/2018/05/26/2xi4r.png">
+<meta property="og:updated_time" content="2018-05-26T14:25:38.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo博客改装和一些细节优化">
+<meta name="twitter:description" content="&amp;emsp;由于之前搭建的hexo博客太过花哨，所以打算这次花一段时间优化一些，这次选择的时候比较大众化的NexT&amp;emsp;  废话不多说，直接开始进入改造步骤！ 一、配置主题1、首先我们将NexT主题clone下来； $ git clone https://github.com/iissnan/hexo-theme-next themes/next 2、到hexo的配置文件_config.ym">
+<meta name="twitter:image" content="https://s1.ax2x.com/2018/05/26/2xpy6.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/26/hexo博客改装和一些细节优化/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>hexo博客改装和一些细节优化 | 十里枯木的部落阁</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  
+  <style>
+  .forkme{
+ display: none;
+ }
+  @media (min-width: 768px) {
+ .forkme{
+ display: inline;
+ }
+  }
+  </style>
+
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<div class="forkme">
+	<a target="_blank" href="https://github.com/Chakid"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+	</div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">十里枯木的部落阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">永远年轻，永远热泪盈眶</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/26/hexo博客改装和一些细节优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chakid">
+      <meta itemprop="description" content="不比别人优秀，我又何来权利拥有。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="十里枯木的部落阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hexo博客改装和一些细节优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-26 20:11:12 / 修改时间：22:25:38" itemprop="dateCreated datePublished" datetime="2018-05-26T20:11:12+08:00">2018-05-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/26/hexo博客改装和一些细节优化/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/05/26/hexo博客改装和一些细节优化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;由于之前搭建的hexo博客太过花哨，所以打算这次花一段时间优化一些，这次选择的时候比较大众化的<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a><br>&emsp;  废话不多说，直接开始进入改造步骤！</p>
+<h2 id="一、配置主题"><a href="#一、配置主题" class="headerlink" title="一、配置主题"></a>一、配置主题</h2><p>1、首先我们将NexT主题clone下来；</p>
+<pre><code>$ git clone https://github.com/iissnan/hexo-theme-next themes/next
+</code></pre><p>2、到hexo的配置文件<code>_config.yml</code>里面的主题改成next，注意：theme后面有一个空格。</p>
+<pre><code>$ theme: next
+</code></pre><p>然后右键<code>Git Bash Here</code> 输入  </p>
+<pre><code>$ hexo g
+$ hexo s
+</code></pre><p>即可在浏览器输入：<code>127.0.0.1：4000/</code> 看道预览，当在Git Dos启动成功的时候，但是在浏览器无法浏览的时候，可能就是福昕阅读器这个坑货占用了4000端口导致的，所以当发现不能用的时候可以在将   </p>
+<pre><code>$ hexo s
+</code></pre><p>改成  </p>
+<pre><code>$ hexo s -p 5000  
+</code></pre><h2 id="二、主题设定"><a href="#二、主题设定" class="headerlink" title="二、主题设定"></a>二、主题设定</h2><p>选择 Scheme<br>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以 在 Scheme 之间共用。目前 NexT 支持三种 Scheme，他们是：  </p>
+<p><font size="3"><br>  Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白<br>  Mist - Muse 的紧凑版本，整洁有序的单栏外观<br>  Pisces - 双栏 Scheme，小家碧玉似的清新<br>  Scheme 的切换通过更改 主题配置文件，搜索 <code>scheme</code> 关键字。 你会看到有三行 scheme 的配置，将你需用启用的 scheme 前面注释 # 去除即可。</font></p>
+<p>#scheme: Muse</p>
+<p>#scheme: Mist<br>scheme: Pisces</p>
+<p>我这里选的是：<code>Gemini</code><br><img src="https://s1.ax2x.com/2018/05/26/2xpy6.png" alt="2xpy6.png"></p>
+<h2 id="三、优化博客"><a href="#三、优化博客" class="headerlink" title="三、优化博客"></a>三、优化博客</h2><h3 id="设置一页显示的文章篇数"><a href="#设置一页显示的文章篇数" class="headerlink" title="设置一页显示的文章篇数"></a>设置一页显示的文章篇数</h3><p>进入<code>hexo\_config.yml</code><br><img src="https://s1.ax2x.com/2018/05/26/2xZtG.png" alt="2xZtG.png"><br>将<code>per_page：</code>的参数改成自己想要显示的篇数即可！</p>
+<h4 id="修改中文："><a href="#修改中文：" class="headerlink" title="修改中文："></a>修改中文：</h4><p>hexo的配置文件<code>_config.yml</code>中<br><code>language: zh-CN</code><br>NexT的官方文档说是使用：<br><code>language: zh-Hans</code><br>不知道到为什么我的设置成<code>zh-CN</code>才是中文，不行的话自己两个换着试吧。</p>
+<h3 id="添加个人联系方式"><a href="#添加个人联系方式" class="headerlink" title="添加个人联系方式"></a>添加个人联系方式</h3><p>效果图：  </p>
+<p><img src="https://s1.ax2x.com/2018/05/26/2xWwy.png" alt="2xWwy.png"><br>进入NexT主题的目录下更改主题的配置文件：<code>hexo\themes\next\_config.yml</code><br><img src="https://s1.ax2x.com/2018/05/26/2xbYB.png" alt="2xbYB.png"><br>||后面的是对应图标的显示；</p>
+<h3 id="添加友情链接"><a href="#添加友情链接" class="headerlink" title="添加友情链接"></a>添加友情链接</h3><p>效果图：<br><img src="https://s1.ax2x.com/2018/05/26/2xs8p.png" alt="2xs8p.png"><br>进入NexT主题的目录下更改主题的配置文件：<code>hexo\themes\next\_config.yml</code><br><img src="https://s1.ax2x.com/2018/05/26/2x4H3.png" alt="2x4H3.png">  </p>
+<h3 id="添加关于页面"><a href="#添加关于页面" class="headerlink" title="添加关于页面"></a>添加关于页面</h3><p>添加关于页面<br><code>$ hexo new page &quot;about&quot;</code><br>在source文件夹下就会有about文件夹，编辑index.md，然后进入主题的_config.yml中，menu下的#about注释去掉</p>
+<h3 id="实现点击出现桃心效果"><a href="#实现点击出现桃心效果" class="headerlink" title="实现点击出现桃心效果"></a>实现点击出现桃心效果</h3><p>具体实现方法<br>在网址输入如下</p>
+<pre><code>http://7u2ss1.com1.z0.glb.clouddn.com/love.js
+</code></pre><p>然后将里面的代码copy一下，新建<code>love.js</code>文件并且将代码复制进去，然后保存。将<code>love.js</code>文件放到路径<code>/themes/next/source/js/src</code>里面，然后打开<code>\themes\next\layout\_layout.swig</code>文件,在末尾（在前面引用会出现找不到的bug）添加以下代码：<br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/love.js&quot;&gt;&lt;/script&gt;</code></p>
+<h3 id="hexo-基于leanCloud添加评论系统valine"><a href="#hexo-基于leanCloud添加评论系统valine" class="headerlink" title="hexo 基于leanCloud添加评论系统valine"></a>hexo 基于leanCloud添加评论系统valine</h3><p> ~~~  参考链接： 百度： <a href="https://jingyan.baidu.com/article/8ebacdf07eb4fa49f65cd5a8.html" target="_blank" rel="external">hexo 基于LeanCloud添加评论系统valine</a><br>1、去<a href="https://leancloud.cn" target="_blank" rel="external">LeanCloud官网</a>注册个账号<br>2、创建个账号：选择开发板<br>3、得到id和key<br><a href="https://simimg.com/i/2xA3u" target="_blank" rel="external"><img src="https://s1.ax2x.com/2018/05/26/2xA3u.md.png" alt="2xA3u.md.png"></a><br>4、添加域名： 写自己的域名，不能用通配符。<br><a href="https://simimg.com/i/2xtM9" target="_blank" rel="external"><img src="https://s1.ax2x.com/2018/05/26/2xtM9.md.png" alt="2xtM9.md.png"></a><br>5、在主题的配置文件中修改对应配置<br><a href="https://simimg.com/i/2x6LA" target="_blank" rel="external"><img src="https://s1.ax2x.com/2018/05/26/2x6LA.md.png" alt="2x6LA.md.png"></a>  </p>
+<h2 id="四、部署到coding-net"><a href="#四、部署到coding-net" class="headerlink" title="四、部署到coding.net"></a>四、部署到coding.net</h2><p>原因：输出到coding访问速度回加快，原因你懂的。<br>部署步骤<br>1、注册Coding.net账号：<br>打开<a href="https://coding.net/" target="_blank" rel="external">Coding.net官网</a>，注册一个个人账号</p>
+<p>2、新建项目：<br>注意项目名与注册用的账户名一致，这里我用的是chakid：<br>3、添加公钥：<br>上面设置完毕之后点击创建项目，然后点击设置-&gt;部署公钥-&gt;新建部署公钥，之前部署到Github上的时候，本地目录 C\User(中文为用户)(电脑用户名).ssh 目录下会有 github.rsa.pub 公钥文件，打开然后复制里面的内容，直接贴在这里的公钥框中：<br><a href="https://simimg.com/i/2xIRO" target="_blank" rel="external"><img src="https://s1.ax2x.com/2018/05/26/2xIRO.md.png" alt="2xIRO.md.png"></a></p>
+<p>记得要勾选 授予推送权限 ，否则在后面运行hexo d时会提示错误：<br><code>Coding.net Tips : [Deploy key is not allowed to push!]  
+fatal: Could not read from remote repository.</code><br>原因就是没有推送权限。<br>打开Git命令窗口Git shell，输入一下指令：<br><code>$ ssh -T git@git.coding.NET</code><br>假如出现以下输出结果，表示公钥绑定成功：<br><code>C:\Users\hasee-pc\Documents\GitHub&gt; ssh -T git@git.coding.NET
+Warning: Permanently added &#39;git.coding.net,14.215.101.70&#39; (RSA) to the list of known hosts.
+Coding.net Tips : [Hello! You&#39;ve connected to Coding.net via SSH. This is a deploy key.]</code><br>4\修改hexo配置：<br>打开hexo本地的配置文件 <code>_config.yml</code>，修改<code>deploy</code> 的配置内容，这里设置了运行<code>hexo d</code>之后部署的目的地址，原本只有Github地址，现在添加多<code>Coding.net</code>的地址，其中<code>chakid</code>是注册该平台的用户名：<br><img src="https://s1.ax2x.com/2018/05/26/2xlPe.png" alt="2xlPe.png"><br>    注意：github:和coding:后面接地址前，必须有一个英语输出法的空格隔开，否则会报错。<br>5、正式部署到Coding.net：<br>打开命令行窗口，定位到当前hexo项目的根目录下，运行以下指令将本地博客部署到<code>Github</code>和<code>Coding.net</code>上：<br>假如提交成功，在命令行会输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">On branch master</div><div class="line">nothing to commit, working directory clean</div><div class="line">Warning: Permanently added &apos;github.com,192.30.255.112&apos; (RSA) to the list of known hosts.</div><div class="line">Branch master set up to track remote branch master from git@github.com:linshuhe1/linshuhe1.github.io.git.</div><div class="line">Everything up-to-date</div><div class="line">On branch master</div><div class="line">nothing to commit, working directory clean</div><div class="line">Warning: Permanently added &apos;git.coding.net,180.97.181.69&apos; (RSA) to the list of known hosts.</div><div class="line">Branch master set up to track remote branch master from git@git.coding.net:linshuhe1/linshuhe1.git.</div><div class="line">To git@git.coding.net:linshuhe1/linshuhe1.git</div><div class="line">* [new branch]      HEAD -&gt; master</div><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
+<p>6、设置Coding Page：<br>打开Coding.net的项目管理界面，打开代码-&gt;Pages服务，选择部署来源为<code>master</code>分支，然后保存即可：<br><a href="https://simimg.com/i/2x8Sd" target="_blank" rel="external"><img src="https://s1.ax2x.com/2018/05/26/2x8Sd.md.png" alt="2x8Sd.md.png"></a>  </p>
+<h2 id="五、配置HTTPS"><a href="#五、配置HTTPS" class="headerlink" title="五、配置HTTPS"></a>五、配置HTTPS</h2><p>conding.net支持配置HTTPS<br><a href="https://simimg.com/i/2xfHR" target="_blank" rel="external"><img src="https://s1.ax2x.com/2018/05/26/2xfHR.png" alt="2xfHR.png"></a><br>具体步骤看其官网提示步骤。</p>
+<h2 id="六、配置好HTTPS去除coding的广告页面"><a href="#六、配置好HTTPS去除coding的广告页面" class="headerlink" title="六、配置好HTTPS去除coding的广告页面"></a>六、配置好HTTPS去除coding的广告页面</h2><p>在路径：<code>hexo\themes\next\layout\_partials\footer.swig</code>中修改(修改位置在改文件末尾)：<br><a href="https://simimg.com/i/2xi4r" target="_blank" rel="external"><img src="https://s1.ax2x.com/2018/05/26/2xi4r.png" alt="2xi4r.png"></a></p>
+<p>#####参考链接：<br>1、<a href="http://theme-next.iissnan.com" target="_blank" rel="external">NexT官网</a><br>2、<a href="https://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="external">https://www.jianshu.com/p/f054333ac9e6 </a><br>3、<a href="https://www.jianshu.com/p/ba61be039c1f" target="_blank" rel="external">https://www.jianshu.com/p/ba61be039c1f</a><br>4、<a href="https://blog.csdn.net/linshuhe1/article/details/71170499" target="_blank" rel="external">配置Https</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/26/设计模式的六大原则/" rel="next" title="设计模式的六大原则">
+                <i class="fa fa-chevron-left"></i> 设计模式的六大原则
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Chakid" />
+            
+              <p class="site-author-name" itemprop="name">Chakid</p>
+              <p class="site-description motion-element" itemprop="description">不比别人优秀，我又何来权利拥有。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Chakid" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:chakid125@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/5863403858/profile?topnav=1&wvr=6" target="_blank" title="微&nbsp&nbsp&nbsp博"><i class="fa fa-fw fa-weibo"></i>微&nbsp&nbsp&nbsp博</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.jianshu.com/u/dae03f6e8fac" target="_blank" title="简&nbsp&nbsp&nbsp书"><i class="fa fa-fw fa-heartbeat"></i>简&nbsp&nbsp&nbsp书</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.daliansky.net/" title="黑果小兵的部落阁" target="_blank">黑果小兵的部落阁</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.leeyom.top/" title="Leeyom 的个人站" target="_blank">Leeyom 的个人站</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、配置主题"><span class="nav-number">1.</span> <span class="nav-text">一、配置主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、主题设定"><span class="nav-number">2.</span> <span class="nav-text">二、主题设定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、优化博客"><span class="nav-number">3.</span> <span class="nav-text">三、优化博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置一页显示的文章篇数"><span class="nav-number">3.1.</span> <span class="nav-text">设置一页显示的文章篇数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改中文："><span class="nav-number">3.1.1.</span> <span class="nav-text">修改中文：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加个人联系方式"><span class="nav-number">3.2.</span> <span class="nav-text">添加个人联系方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加友情链接"><span class="nav-number">3.3.</span> <span class="nav-text">添加友情链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加关于页面"><span class="nav-number">3.4.</span> <span class="nav-text">添加关于页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现点击出现桃心效果"><span class="nav-number">3.5.</span> <span class="nav-text">实现点击出现桃心效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-基于leanCloud添加评论系统valine"><span class="nav-number">3.6.</span> <span class="nav-text">hexo 基于leanCloud添加评论系统valine</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、部署到coding-net"><span class="nav-number">4.</span> <span class="nav-text">四、部署到coding.net</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、配置HTTPS"><span class="nav-number">5.</span> <span class="nav-text">五、配置HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、配置好HTTPS去除coding的广告页面"><span class="nav-number">6.</span> <span class="nav-text">六、配置好HTTPS去除coding的广告页面</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chakid</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <span><a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></span> 强力驱动 v3.3.7</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <div class="theme-info"><span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span></div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'mxY9okWngT3PC9wwh9amgB84-gzGzoHsz',
+        appKey: 'x4dTiDqIx5DoSCLEU8K24GrI',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
+
